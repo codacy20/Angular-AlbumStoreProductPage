@@ -9,16 +9,10 @@ export class ProductService {
   private _albumUrl = '../assets/album.json';
   constructor(private _http:Http) { }
 
-  getAlbum(id):any{
+  getAlbum(id:number){
     return this._http.get(this._albumUrl)
-    .map((response: Response) => {
-      const data = response.json(); 
-    });
+    .map((response: Response) => 
+      response.json());
   }
 
-  ngOnInit() {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.getAlbum(12);
-  }
 }
